@@ -16,11 +16,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val time = findViewById<EditText>(R.id.editText).text.toString()
+        val time = findViewById<EditText>(R.id.editText)
         val button = findViewById<Button>(R.id.button)
 
         button.setOnClickListener{
-            val intent = Intent(this, TimerService::class.java)
+            val time = time.text.toString().toInt()
+            val intent = Intent(this, TimerService1::class.java)
             intent.putExtra("time", time)
             startService(intent)
 
